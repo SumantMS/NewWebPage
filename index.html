@@ -262,23 +262,32 @@
 
     <!-- footer section start -->
     <footer>
-        <h1>Website Viewer Counter</h1>
-  <p id="counter">0</p>
+      
+      <h1>Website Viewer Counter</h1>
+<p id="counter">0</p>
 
-  <script>
-    // JavaScript code to count viewers
-    let counter = 0; 
-
-    // Check if a cookie exists
-    if (document.cookie.indexOf('viewerCount=') === -1) {
-      // If no cookie, increment counter and set cookie
-      counter++;
-      document.cookie = "viewerCount=" + counter; 
+<script>
+  // Function to get the value of a specific cookie
+  function getCookie(name) {
+    let cookies = document.cookie.split('; ');
+    for (let i = 0; i < cookies.length; i++) {
+      let [key, value] = cookies[i].split('=');
+      if (key === name) return value;
     }
+    return null;
+  }
 
-    // Display the counter
-    document.getElementById("counter").innerHTML = counter;
-  </script>
+  // Initialize counter based on the cookie value
+  let counter = parseInt(getCookie("viewerCount")) || 0;
+
+  // Increment the counter and set the updated value in the cookie
+  counter++;
+  document.cookie = "viewerCount=" + counter + "; path=/;";
+
+  // Display the updated counter on the page
+  document.getElementById("counter").innerHTML = counter;
+</script>
+
         <h6>SUMANTH MS SUMU</h6>
     </footer>
 
