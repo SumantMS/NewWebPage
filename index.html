@@ -262,6 +262,23 @@
 
     <!-- footer section start -->
     <footer>
+        <h1>Website Viewer Counter</h1>
+  <p id="counter">0</p>
+
+  <script>
+    // JavaScript code to count viewers
+    let counter = 0; 
+
+    // Check if a cookie exists
+    if (document.cookie.indexOf('viewerCount=') === -1) {
+      // If no cookie, increment counter and set cookie
+      counter++;
+      document.cookie = "viewerCount=" + counter; 
+    }
+
+    // Display the counter
+    document.getElementById("counter").innerHTML = counter;
+  </script>
         <h6>SUMANTH MS SUMU</h6>
     </footer>
 
